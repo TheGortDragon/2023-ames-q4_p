@@ -10,6 +10,8 @@ public class DefaultMove : MonoBehaviour {
     private Animator animator;
     public float jumpPower;
     public float speed;
+    public float yVelocity;
+    
 
     public Sprite CUBEEEE;
 
@@ -17,6 +19,7 @@ public class DefaultMove : MonoBehaviour {
         rb2 = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        yVelocity = rb2.velocity.y;
     }
 
     // Update is called once per frame
@@ -31,6 +34,8 @@ public class DefaultMove : MonoBehaviour {
             sr.flipX = x < 0;
         }
         animator.SetBool("Moving", moving);
+        //Debug.Log(moving);
+        Debug.Log(rb2.velocity.y);
 
         bool crouch = Input.GetButton("Crouch");
         animator.enabled = !crouch;
@@ -38,6 +43,17 @@ public class DefaultMove : MonoBehaviour {
 
         GetComponents<BoxCollider2D>()[0].enabled = !crouch;
         GetComponents<BoxCollider2D>()[1].enabled = crouch;
+
+        animator.SetFloat("yVelocity", rb2.velocity.y);
+        animator.SetBool("Grounded", isGround);
+        if(rb2.velocity.y > 0)
+        {
+            animator.SetBool("Jumping", true);
+        } else if(rb2.velocity.y < 0)
+        {
+            animator.SetBool("Jumping", false);
+        }
+      
     }
 
     public void OnCollisionEnter2D(Collision2D collision) {
