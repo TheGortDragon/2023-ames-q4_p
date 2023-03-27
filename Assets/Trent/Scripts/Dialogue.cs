@@ -21,7 +21,7 @@ public class Dialogue : MonoBehaviour
     void Start()
     {
         textComp.text = string.Empty;
-        StartDialogue();
+        //StartDialogue();
     }
 
     // Update is called once per frame
