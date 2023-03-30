@@ -15,13 +15,17 @@ public class Dialogue : MonoBehaviour
     public Sprite[] portraits;
     public float textSpeed;
     public Image dialoguePortrait;
+    public Animator animator;
+
 
     private int index;
     // Start is called before the first frame update
     void Start()
     {
+        animator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+       
         textComp.text = string.Empty;
-        //StartDialogue();
+        StartDialogue();
     }
 
     // Update is called once per frame
@@ -29,14 +33,14 @@ public class Dialogue : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (textComp.text == lines[index])
+            if (textComp.text == lines[index].Substring(1))
             {
                 NextLine();
             }
             else
             {
                 StopAllCoroutines();
-                textComp.text = lines[index];
+                textComp.text = lines[index].Substring(1);
             }
         }
     }
@@ -44,23 +48,49 @@ public class Dialogue : MonoBehaviour
     void StartDialogue()
     {
         index = 0;
+        startTalk(lines[index][0]);
         StartCoroutine(TypeLine());
         dialoguePortrait.sprite = portraits[index];
     }
     IEnumerator TypeLine()
     {
-        foreach (char c in lines[index].ToCharArray())
+        foreach (char c in lines[index].Substring(1).ToCharArray())
         {
             textComp.text += c;
             yield return new WaitForSeconds(textSpeed);
         }
+        stopTalk(lines[index][0]);
+    }
+
+     void startTalk(char talker)
+    {
+        Debug.Log(talker);
+        if (talker == '0')
+        {
+            animator.SetBool("isTalking", true);
+            
+        }
+        
+    }
+    void stopTalk(char talker)
+    {
+        Debug.Log(talker);
+        if (talker == '0')
+        {
+            animator.SetBool("isTalking", false);
+            
+        }
+        
     }
 
     void NextLine()
     {
-        if(index < lines.Length - 1)
+        
+        if (index < lines.Length - 1)
         {
             index++;
+            startTalk(lines[index][0]);
+
             textComp.text = string.Empty;
             StartCoroutine(TypeLine());
             dialoguePortrait.sprite = portraits[index];

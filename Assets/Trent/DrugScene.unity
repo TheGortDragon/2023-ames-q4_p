@@ -133,9 +133,10 @@ GameObject:
   m_Component:
   - component: {fileID: 64062849}
   - component: {fileID: 64062848}
+  - component: {fileID: 64062850}
   m_Layer: 0
   m_Name: Q4 Sprite
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -205,6 +206,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &64062850
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64062847}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8700338a012c3ee4d81188e74d75c64e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &432371934
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,40 +397,44 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3909592375204993732, guid: 471a95fec173819458687f5e04203f40, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 64062850}
+    - target: {fileID: 3909592375204993732, guid: 471a95fec173819458687f5e04203f40, type: 3}
       propertyPath: lines.Array.size
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3909592375204993732, guid: 471a95fec173819458687f5e04203f40, type: 3}
       propertyPath: lines.Array.data[0]
-      value: It's you again!
+      value: 0It's you again!
       objectReference: {fileID: 0}
     - target: {fileID: 3909592375204993732, guid: 471a95fec173819458687f5e04203f40, type: 3}
       propertyPath: lines.Array.data[1]
-      value: Why are you following me?!
+      value: 0Why are you following me?!
       objectReference: {fileID: 0}
     - target: {fileID: 3909592375204993732, guid: 471a95fec173819458687f5e04203f40, type: 3}
       propertyPath: lines.Array.data[2]
-      value: I'm not following you.
+      value: .I'm not following you.
       objectReference: {fileID: 0}
     - target: {fileID: 3909592375204993732, guid: 471a95fec173819458687f5e04203f40, type: 3}
       propertyPath: lines.Array.data[3]
-      value: You're following me.
+      value: .You're following me.
       objectReference: {fileID: 0}
     - target: {fileID: 3909592375204993732, guid: 471a95fec173819458687f5e04203f40, type: 3}
       propertyPath: lines.Array.data[4]
-      value: We both know why you're here.
+      value: .We both know why you're here.
       objectReference: {fileID: 0}
     - target: {fileID: 3909592375204993732, guid: 471a95fec173819458687f5e04203f40, type: 3}
       propertyPath: lines.Array.data[5]
-      value: You're disgusting.
+      value: .You're disgusting.
       objectReference: {fileID: 0}
     - target: {fileID: 3909592375204993732, guid: 471a95fec173819458687f5e04203f40, type: 3}
       propertyPath: lines.Array.data[6]
-      value: Please stop!
+      value: .Please stop!
       objectReference: {fileID: 0}
     - target: {fileID: 3909592375204993732, guid: 471a95fec173819458687f5e04203f40, type: 3}
       propertyPath: lines.Array.data[7]
-      value: I just want this to end!
+      value: .I just want this to end!
       objectReference: {fileID: 0}
     - target: {fileID: 3909592375204993732, guid: 471a95fec173819458687f5e04203f40, type: 3}
       propertyPath: lines.Array.data[8]
